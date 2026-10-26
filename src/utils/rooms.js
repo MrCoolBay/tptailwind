@@ -12,3 +12,6 @@ export const fitsPlayers = (room, players) => players >= room.playersMin && play
 
 // « 18:30 » => « 18h30 »
 export const formatSlot = (slot) => slot.replace(':', 'h')
+
+// Aucun filtre actif : tous joueurs, toutes difficultés, accessibilité indifférente
+export const EMPTY_FILTERS = { players: null, difficulties: new Set(), wheelchair: false }
