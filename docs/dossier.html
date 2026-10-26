@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Dossier de projet – Huit Clés – Fabien Lubin</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 9.6pt/1.45 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c1b22; }
+  h1 { font-size: 24pt; margin: 0 0 4px; letter-spacing: -0.01em; }
+  h2 { font-size: 15pt; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 2px solid #1c1b22; }
+  h3 { font-size: 11pt; margin: 14px 0 6px; }
+  p { margin: 0 0 7px; }
+  section { break-before: page; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0 10px; break-inside: avoid; }
+  th, td { border: 1px solid #d6d4de; padding: 4px 7px; text-align: left; vertical-align: top; }
+  th { background: #f1f0f5; }
+  ul, ol { margin: 0 0 8px; padding-left: 18px; }
+  code { font: 8.6pt Menlo, monospace; background: #f1f0f5; padding: 0 3px; border-radius: 3px; }
+  .muted { color: #5c596a; }
+  .todo { background: #fff4d6; border: 1px dashed #c58a00; padding: 1px 4px; border-radius: 3px; }
+  .box { border-left: 4px solid #d4a14a; background: #faf6ec; padding: 7px 10px; margin: 8px 0; break-inside: avoid; }
+  .shots { display: flex; gap: 8px; align-items: flex-start; flex-wrap: wrap; }
+  figure { margin: 0; break-inside: avoid; }
+  figure img { display: block; border: 1px solid #d6d4de; border-radius: 6px; }
+  figcaption { font-size: 7.8pt; color: #5c596a; margin-top: 2px; }
+  .m img { width: 112px; } .d img { width: 340px; } .sb img { width: 100%; }
+  .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; border: 1px solid #0003; }
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .kicker { font-size: 9pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6b6878; }
+  .scores { display: flex; gap: 10px; } .scores div { flex: 1; border: 1px solid #d6d4de; border-radius: 8px; padding: 8px; text-align: center; }
+  .scores strong { display: block; font-size: 20pt; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div>
+    <p class="kicker">Projet noté · TailwindCSS &amp; SASS · ESGI Reims, bac+3</p>
+    <h1>Huit Clés, escape game à Reims</h1>
+    <p style="font-size:12pt" class="muted">Concevoir et intégrer le site d'un client fictif : de ses utilisateurs à la mise en ligne.</p>
+    <table style="margin-top:18px">
+      <tr><th style="width:28%">Étudiant</th><td>Fabien Lubin</td></tr>
+      <tr><th>Enseignant</th><td>Cédric Navet</td></tr>
+      <tr><th>Site en ligne</th><td><span class="todo">URL Vercel à compléter</span></td></tr>
+      <tr><th>Dépôt Git</th><td><span class="todo">URL GitHub à compléter</span></td></tr>
+      <tr><th>Technique</th><td>Vite, React 19, Tailwind CSS 4 (tokens <code>@theme</code>), SASS (<code>sass-embedded</code>, CSS Module + partials <code>@use</code>), Storybook 10 + addon Accessibility</td></tr>
+    </table>
+  </div>
+  <div>
+    <h3>Sommaire</h3>
+    <ol>
+      <li>Cadrage</li><li>Personas et missions</li><li>Écrans</li><li>Design system</li>
+      <li>Tests utilisateurs</li><li>Trois choix justifiés</li><li>Qualité</li><li>Utilisation de l'IA</li>
+    </ol>
+  </div>
+</div>
+
+<section>
+  <h2>1. Cadrage</h2>
+  <table>
+    <tr><th style="width:24%">Client</th><td><strong>Huit Clés</strong> (nom fictif, vérifié : aucune enseigne existante trouvée sous ce nom). Escape game, typologie <em>culture et loisirs</em>, centre de Reims. 6 salariés, 8 salles, ouvert 7 jours sur 7.</td></tr>
+    <tr><th>Offres</th><td>
+      <ol>
+        <li><strong>Les 8 salles</strong> : 60 à 90 min, 2 à 8 joueurs, 4 niveaux. Prix par joueur dégressif : 32 € à 2, 28 € à 3, 26 € à 4, 24 € à 5, 22 € dès 6.</li>
+        <li><strong>Formule anniversaire</strong> : salle + espace goûter privatisé, +60 € par groupe, dès 8 ans.</li>
+        <li><strong>Team building</strong> : jusqu'à 4 salles simultanées, 30 personnes, sur devis.</li>
+        <li><strong>Carte cadeau</strong> : de 50 € à 250 €, valable 1 an.</li>
+      </ol></td></tr>
+    <tr><th>Objectif du site</th><td>Obtenir des réservations en ligne : faire passer la part des réservations faites sur le site de <strong>40 % à 70 % en 6 mois</strong> (le reste arrive aujourd'hui par téléphone).</td></tr>
+    <tr><th>Données</th><td><code>rooms.json</code> : 8 salles (<code>name</code>, <code>theme</code>, <code>story</code>, <code>difficulty</code> 1 à 4, <code>playersMin</code>/<code>playersMax</code>, <code>duration</code>, <code>minAge</code>, <code>wheelchair</code>, <code>slots</code>). <code>pricing.json</code> : la grille de prix par taille de groupe.</td></tr>
+    <tr><th>Ambiance</th><td>Mystérieuse, chaleureuse, ludique. <span class="swatch" style="background:#16131f"></span> Nuit d'encre · <span class="swatch" style="background:#d4a14a"></span> Laiton · <span class="swatch" style="background:#4ea596"></span> Vert-de-gris. Titres en <em>Fraunces</em> (serif « affiche ancienne »), texte en <em>Inter</em>.</td></tr>
+  </table>
+  <p class="muted">Écart avec la fiche de cadrage : le champ <code>image</code> prévu dans <code>rooms.json</code> a été retiré, faute de visuels libres de droits ; la difficulté est représentée par une jauge de cadenas en SVG (décorative, <code>aria-hidden</code>), le niveau étant toujours écrit en toutes lettres.</p>
+
+  <h2 style="margin-top:18px">2. Personas et missions</h2>
+  <table>
+    <tr><th style="width:16%"></th><th>Inès</th><th>Gérard</th></tr>
+    <tr><th>Qui</th><td>24 ans, étudiante infirmière ; 3 ou 4 escape games par an entre amis</td><td>67 ans, retraité ; n'a jamais fait d'escape game</td></tr>
+    <tr><th>Contexte</th><td>dans le tram, <strong>téléphone</strong>, le soir ; organise pour 5 amis</td><td>chez lui, <strong>ordinateur portable</strong> ; sortie avec sa fille en fauteuil roulant et ses petits-enfants de 9 et 12 ans</td></tr>
+    <tr><th>Ce qu'il veut</th><td>une salle « pas trop dure » pour 5, un samedi soir, sans téléphoner</td><td>être certain que la salle est accessible et adaptée aux enfants, connaître le prix exact</td></tr>
+    <tr><th>Ce qui gêne</th><td>découvrir le prix à la fin, les longs formulaires sur mobile</td><td>le jargon, les petits caractères, les informations d'accès cachées</td></tr>
+    <tr><th>Mission</th><td><strong>Sur son téléphone, réserver un samedi soir une salle Facile ou Moyenne pour 5 joueurs, en moins de 2 minutes, sans erreur de saisie.</strong></td><td><strong>Sur ordinateur, trouver une salle accessible en fauteuil, jouable dès 9 ans, pour 4 joueurs, et lire son prix total, en moins de 3 minutes, sans aide.</strong></td></tr>
+    <tr><th>Parcours</th><td>Accueil → <em>Trouver ma salle</em> → Salles (filtres 5 + Facile + Moyen : 5 salles) → fiche → <em>Réserver cette salle</em> (salle et joueurs pré-remplis) → date, créneau, coordonnées → confirmation</td><td>Accueil → Salles (filtres fauteuil + 4 : 4 salles) → lecture de l'âge sur les cartes (« dès 8 ans ») → fiche de <em>La Cave aux mille bouteilles</em> → prix : 104 € pour 4</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>3. Écrans</h2>
+  <table>
+    <tr><th style="width:18%">Écran</th><th>Rôle</th><th style="width:22%">Mission servie</th></tr>
+    <tr><td><strong>Accueil</strong></td><td>Proposition de valeur (« 8 salles. Une heure pour vous échapper. »), <strong>un seul</strong> appel à l'action <em>Trouver ma salle</em>, prix d'appel, nombre de salles accessibles, formules, déroulement.</td><td>Inès, Gérard</td></tr>
+    <tr><td><strong>Les salles</strong></td><td>8 salles générées depuis le JSON ; 3 filtres combinables (joueurs, difficulté à choix multiples, accessibilité) ; compteur annoncé aux lecteurs d'écran ; prix total sur chaque carte ; fiche détail en modal ; état vide avec sortie.</td><td>Inès, Gérard</td></tr>
+    <tr><td><strong>Réserver</strong></td><td>Formulaire à labels visibles, validation à la sortie du champ, erreurs près du champ + résumé, état de chargement, confirmation récapitulative. Récapitulatif de prix toujours visible.</td><td>Inès</td></tr>
+  </table>
+  <p>Navigation : un état React synchronisé avec l'ancre de l'URL (<code>#salles</code>, <code>#reserver</code>), pour que le bouton Retour et le rechargement fonctionnent ; à chaque changement de vue, le focus va sur le titre et le titre de l'onglet change.</p>
+
+  <h3>Captures mobile (375 px)</h3>
+  <div class="shots m">
+    <figure><img src="captures/m-accueil.png" alt="Accueil sur mobile"><figcaption>Accueil</figcaption></figure>
+    <figure><img src="captures/m-salles.png" alt="Liste filtrée pour 5 joueurs, Facile et Moyen"><figcaption>Salles, 5 joueurs, Facile + Moyen</figcaption></figure>
+    <figure><img src="captures/m-modal.png" alt="Fiche détail en bas d'écran"><figcaption>Fiche détail</figcaption></figure>
+    <figure><img src="captures/m-erreurs.png" alt="Formulaire envoyé vide : résumé des erreurs"><figcaption>Envoi incomplet</figcaption></figure>
+    <figure><img src="captures/m-confirmation.png" alt="Confirmation de réservation"><figcaption>Confirmation</figcaption></figure>
+  </div>
+  <h3 style="break-before:page">Captures ordinateur (1366 px)</h3>
+  <div class="shots d">
+    <figure><img src="captures/d-accueil.png" alt="Accueil sur ordinateur"><figcaption>Accueil</figcaption></figure>
+    <figure><img src="captures/d-salles.png" alt="Salles filtrées : fauteuil et 4 joueurs"><figcaption>Salles : fauteuil + 4 joueurs (mission de Gérard)</figcaption></figure>
+    <figure><img src="captures/d-modal.png" alt="Fiche avec prix total pour 4"><figcaption>Fiche : 104 € pour 4 joueurs</figcaption></figure>
+    <figure><img src="captures/d-vide.png" alt="État vide"><figcaption>État vide : aucune salle Expert accessible pour 4</figcaption></figure>
+  </div>
+  <h3>Croquis</h3>
+  <div id="croquis" style="height:270px;border:1px dashed #c58a00;border-radius:6px;display:grid;place-items:center;background:#fffaf0"><span class="todo">photo des croquis papier à insérer ici</span></div>
+</section>
+
+<section>
+  <h2>4. Design system</h2>
+  <h3>Tokens (<code>src/style.css</code>, bloc <code>@theme static</code>)</h3>
+  <table>
+    <tr><th>Rôle</th><th>Tokens</th><th>Contraste vérifié</th></tr>
+    <tr><td>Fonds</td><td><code>ink</code>, <code>surface</code>, <code>surface-raised</code></td><td>—</td></tr>
+    <tr><td>Textes</td><td><code>parchment</code>, <code>muted</code></td><td>17,1:1 et 9,3:1 (min 4,5)</td></tr>
+    <tr><td>Principale (laiton)</td><td><code>brass-300</code> à <code>brass-600</code></td><td>texte <code>ink</code> sur bouton <code>brass-400</code> : 9,1:1</td></tr>
+    <tr><td>Accent (vert-de-gris)</td><td><code>verdigris-300</code>, <code>verdigris-400</code></td><td>11:1 sur <code>surface</code></td></tr>
+    <tr><td>Sens</td><td><code>ember-400</code> (difficile), <code>danger-300/400</code> (expert, erreurs)</td><td>erreurs : 8,9:1</td></tr>
+    <tr><td>Bordures</td><td><code>line</code> (décor), <code>line-strong</code> (champs, puces)</td><td><code>line-strong</code> : 4,7:1 (min 3 pour un composant)</td></tr>
+    <tr><td>Polices</td><td><code>font-display</code> Fraunces, <code>font-sans</code> Inter</td><td>16 px minimum dans les champs (pas de zoom iOS)</td></tr>
+  </table>
+  <h3>Composants de base (<code>src/components/base/</code>), tous dans Storybook avec leurs états</h3>
+  <table>
+    <tr><th style="width:18%">Composant</th><th>API</th><th>Stories (états)</th></tr>
+    <tr><td><code>Button</code></td><td><code>variant</code>, <code>size</code>, <code>href</code> (lien ou bouton), <code>loading</code>, <code>disabled</code></td><td>Primary, Secondary, Large, Disabled, Loading, LongLabel, AsLink</td></tr>
+    <tr><td><code>FilterChip</code></td><td><code>pressed</code> (<code>aria-pressed</code> + coche), <code>disabled</code></td><td>Off, On, Disabled, Group (interactif)</td></tr>
+    <tr><td><code>Field</code></td><td><code>label</code>, <code>hint</code>, <code>error</code> reliés par <code>aria-describedby</code>, <code>as="select"</code></td><td>Default, WithHint, Filled, Error, Disabled, Select</td></tr>
+    <tr><td><code>RoomCard</code></td><td><code>room</code>, <code>players</code> (prix total), <code>onOpen</code></td><td>Facile, Moyen, Difficile, Expert, WithGroupPrice, NotAccessible, LongContent, Grid</td></tr>
+  </table>
+  <div class="box"><strong>Le composant SASS : <code>RoomCard.module.scss</code>.</strong> Les partials <code>_tokens.scss</code> (map <code>$difficulties</code> qui pointe vers les variables CSS de <code>@theme</code>) et <code>_mixins.scss</code> (<code>focus-ring</code>, <code>touch-target</code>) sont chargés avec <code>@use</code>. Une boucle <code>@each</code> génère les 4 classes <code>.level-1</code> à <code>.level-4</code>, qui ne changent qu'une variable : <code>--level-color</code> (bandeau et cadenas). Le JSX associe le niveau à sa classe par un objet écrit en entier, sans nom de classe construit.</div>
+  <div class="shots sb" style="flex-wrap:nowrap">
+    <figure style="flex:1"><img src="captures/sb-roomcard-difficile.png" alt="Storybook, RoomCard Difficile, 0 violation"><figcaption>RoomCard, variante Difficile générée par la boucle : 0 violation</figcaption></figure>
+    <figure style="flex:1"><img src="captures/sb-field-error.png" alt="Storybook, Field en erreur, 0 violation"><figcaption>Field, état Erreur : 0 violation</figcaption></figure>
+  </div>
+  <p class="muted">25 stories auditées automatiquement avec axe-core (règles WCAG 2.1 A et AA) : 0 violation.</p>
+</section>
+
+<section>
+  <h2>5. Tests utilisateurs</h2>
+  <p><strong>Protocole :</strong> la personne ne connaît pas le site. On lui donne uniquement la mission, sur l'appareil du persona, et on lui demande de penser à voix haute. On ne l'aide pas, on chronomètre, on note les hésitations. Puis on corrige le problème le plus gênant et on refait le test.</p>
+  <table>
+    <tr><th style="width:15%"></th><th>Test 1 : mission d'Inès (téléphone)</th><th>Test 2 : mission de Gérard (ordinateur)</th></tr>
+    <tr><th>Qui</th><td><span class="todo">prénom, âge, lien</span></td><td><span class="todo">prénom, âge, lien</span></td></tr>
+    <tr><th>Temps</th><td><span class="todo">… s (objectif &lt; 2 min)</span></td><td><span class="todo">… s (objectif &lt; 3 min)</span></td></tr>
+    <tr><th>Réussite</th><td><span class="todo">oui / non, erreurs de saisie</span></td><td><span class="todo">oui / non, salle trouvée</span></td></tr>
+    <tr><th>Observé</th><td><span class="todo">hésitations, phrases dites</span></td><td><span class="todo">hésitations, phrases dites</span></td></tr>
+    <tr><th>Corrigé</th><td colspan="2"><span class="todo">le problème le plus gênant, la correction (commit), et le temps au second passage</span></td></tr>
+  </table>
+  <p class="muted">Avant les tests humains, les deux parcours ont été rejoués automatiquement (Playwright, 375 px et 1366 px) pour vérifier qu'ils fonctionnent : Inès obtient 5 salles, sa réservation est pré-remplie (salle, 5 joueurs) et confirmée à 120 € ; Gérard obtient 4 salles, une seule dès 9 ans, à 104 € pour 4. Ce rejeu vérifie le code, il ne remplace pas un test utilisateur.</p>
+
+  <h2 style="margin-top:18px">6. Trois choix justifiés</h2>
+  <ol>
+    <li><strong>J'ai affiché le prix total du groupe sur chaque carte dès que le nombre de joueurs est choisi</strong> (et un récapitulatif de prix toujours visible dans le formulaire), parce qu'Inès est gênée de découvrir le prix à la fin et que la grille est dégressive, donc difficile à calculer de tête ; le test a montré que <span class="todo">…</span></li>
+    <li><strong>J'ai écrit l'accessibilité en toutes lettres sur chaque carte, dans les deux cas (« Non accessible en fauteuil (escalier) »), et ajouté un filtre dédié</strong>, parce que Gérard doit en être certain avant de payer et qu'une absence d'icône ne prouve rien ; le test a montré que <span class="todo">…</span></li>
+    <li><strong>J'ai validé chaque champ à la sortie, pas pendant la frappe, avec un message sous le champ qui donne un exemple (« 06 12 34 56 78 »), et j'ai pré-rempli la salle et le nombre de joueurs</strong>, parce qu'Inès remplit sur mobile dans le tram et que sa mission exige zéro erreur de saisie ; le test a montré que <span class="todo">…</span></li>
+  </ol>
+</section>
+
+<section>
+  <h2>7. Qualité</h2>
+  <h3>Lighthouse, mode mobile</h3>
+  <div class="scores">
+    <div>Performance<strong id="lh-perf">98</strong></div>
+    <div>Accessibilité<strong id="lh-a11y">100</strong></div>
+    <div>Bonnes pratiques<strong id="lh-bp">100</strong></div>
+    <div>SEO<strong id="lh-seo">100</strong></div>
+  </div>
+  <p class="muted" id="lh-source">Mesure sur la version de production servie en local (<code>vite preview</code>). <span class="todo">À remplacer par la mesure sur la version en ligne.</span></p>
+  <h3>Ce qui a été corrigé grâce aux vérifications</h3>
+  <table>
+    <tr><th style="width:30%">Constat</th><th>Correction</th></tr>
+    <tr><td>Lighthouse SEO à 91 : <code>robots.txt</code> invalide</td><td>Ajout de <code>public/robots.txt</code> : SEO à 100.</td></tr>
+    <tr><td>Bords des champs et des puces à 2:1 (WCAG 1.4.11 demande 3:1)</td><td>Nouveau token <code>line-strong</code> (4,7:1) pour les bords interactifs ; <code>line</code> reste pour le décor.</td></tr>
+    <tr><td>Variante « Difficile » sans couleur</td><td>Tailwind 4 n'émet que les variables utilisées par une classe ; <code>ember-400</code> n'était utilisée que par le SASS. Passage à <code>@theme static</code>.</td></tr>
+  </table>
+  <h3>Règles d'ergonomie et d'accessibilité vérifiées</h3>
+  <ul>
+    <li><strong>Clavier</strong> : tout est atteignable au Tab ; Entrée ouvre une fiche ; la modal est un <code>&lt;dialog&gt;</code> natif (focus piégé, Échap ferme, focus rendu à la carte) ; lien « Aller au contenu ».</li>
+    <li><strong>Cibles de 44 px</strong> (<code>min-h-11</code>) : boutons, puces, liens de navigation, créneaux ; la carte entière est cliquable.</li>
+    <li><strong>États</strong> : vide (aucune salle), erreur (par champ + résumé <code>role="alert"</code>), chargement (<code>aria-busy</code>, libellé « Envoi de la réservation… »), succès.</li>
+    <li><strong>Couleur jamais seule</strong> : niveau écrit + cadenas, puce active = fond + coche, erreurs = texte + icône.</li>
+    <li><code>head</code> : <code>lang="fr"</code>, <code>title</code> et <code>meta description</code> propres au client, titre d'onglet par vue.</li>
+    <li>axe-core sur chaque écran (accueil, salles, fiche, formulaire en erreur, confirmation) : 0 violation.</li>
+  </ul>
+
+  <h2 style="margin-top:18px">8. Utilisation de l'IA</h2>
+  <table>
+    <tr><th style="width:24%">Outil</th><td>Claude (Anthropic), via Claude Code dans le terminal.</td></tr>
+    <tr><th>Ce que je lui ai fait produire</th><td>Propositions de clients et fiche de cadrage ; structure du projet ; tokens ; données JSON ; composants, stories et écrans ; scripts de vérification (contrastes, axe, Lighthouse, parcours automatisés) ; captures et mise en page de ce dossier.</td></tr>
+    <tr><th>Ce que les vérifications ont fait corriger</th><td>Les 3 défauts du tableau ci-dessus ont été trouvés par les tests automatiques, pas à l'œil.</td></tr>
+    <tr><th>Ce que j'ai corrigé ou refusé</th><td><span class="todo">à compléter honnêtement : ce que tu as relu, modifié, refusé ou compris différemment</span></td></tr>
+    <tr><th>Ce que l'IA ne pouvait pas faire</th><td>Les tests utilisateurs (faits avec de vraies personnes), les croquis papier, l'envoi de la fiche de cadrage, la création du dépôt public et la mise en ligne.</td></tr>
+  </table>
+</section>
+</body>
+</html>
