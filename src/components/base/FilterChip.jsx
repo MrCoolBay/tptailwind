@@ -7,7 +7,7 @@ export default function FilterChip({ pressed = false, disabled = false, onClick,
       disabled={disabled}
       onClick={onClick}
       className={`inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-300 disabled:cursor-not-allowed disabled:opacity-60 ${
-        pressed ? 'border-brass-300 bg-brass-300 text-ink' : 'border-line text-parchment hover:border-brass-400'
+        pressed ? 'border-brass-300 bg-brass-300 text-ink' : 'border-line-strong text-parchment hover:border-brass-400'
       }`}
     >
       {pressed && (

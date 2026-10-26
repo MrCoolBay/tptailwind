@@ -1,7 +1,7 @@
 // Atome bouton : une API courte (variante, taille) plutôt que des classes libres
 const variants = {
   primary: 'bg-brass-400 text-ink hover:bg-brass-300',
-  secondary: 'border border-line text-parchment hover:border-brass-400 hover:bg-surface-raised',
+  secondary: 'border border-line-strong text-parchment hover:border-brass-400 hover:bg-surface-raised',
 }
 const sizes = { md: 'px-5 text-sm', lg: 'px-7 text-base' }
 

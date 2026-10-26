@@ -20,7 +20,7 @@ export default function Field({ id, label, hint, error, as: Control = 'input', c
         aria-invalid={error ? true : undefined}
         aria-describedby={describedBy}
         className={`mt-2 block min-h-11 w-full rounded-xl border bg-ink px-3.5 text-base text-parchment transition placeholder:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brass-300 disabled:cursor-not-allowed disabled:opacity-60 ${
-          error ? 'border-danger-400' : 'border-line hover:border-brass-500'
+          error ? 'border-danger-400' : 'border-line-strong hover:border-brass-500'
         }`}
         {...rest}
       >

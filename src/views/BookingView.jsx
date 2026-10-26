@@ -192,7 +192,7 @@ export default function BookingView({ initialRoomId, initialPlayers }) {
                 {room.slots.map((slot) => (
                   <label
                     key={slot}
-                    className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium transition hover:border-brass-400 has-checked:border-brass-300 has-checked:bg-brass-300 has-checked:text-ink has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-brass-300"
+                    className="inline-flex min-h-11 cursor-pointer items-center rounded-full border border-line-strong px-4 text-sm font-medium transition hover:border-brass-400 has-checked:border-brass-300 has-checked:bg-brass-300 has-checked:text-ink has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-brass-300"
                   >
                     <input
                       type="radio"
