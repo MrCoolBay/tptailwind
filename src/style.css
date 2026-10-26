@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Design tokens Huit Clés : chaque variable crée des classes utilitaires (bg-brass-400, text-muted...) */
+@theme {
+  /* Fonds : nuit d'encre */
+  --color-ink: oklch(0.17 0.025 295);
+  --color-surface: oklch(0.22 0.03 295);
+  --color-surface-raised: oklch(0.27 0.035 295);
+  --color-line: oklch(0.4 0.03 295);
+
+  /* Textes : parchemin */
+  --color-parchment: oklch(0.96 0.012 85);
+  --color-muted: oklch(0.8 0.02 85);
+
+  /* Principale : laiton, la couleur de la clé */
+  --color-brass-300: oklch(0.86 0.09 84);
+  --color-brass-400: oklch(0.77 0.125 78);
+  --color-brass-500: oklch(0.71 0.13 74);
+  --color-brass-600: oklch(0.6 0.12 68);
+
+  /* Accent : vert-de-gris */
+  --color-verdigris-300: oklch(0.84 0.08 178);
+  --color-verdigris-400: oklch(0.7 0.1 178);
+
+  /* Sens constant : braise (difficile), danger (expert et erreurs) */
+  --color-ember-400: oklch(0.74 0.15 50);
+  --color-danger-300: oklch(0.8 0.11 25);
+  --color-danger-400: oklch(0.68 0.18 25);
+
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Conteneur centré de la page */
+@utility container-page {
+  margin-inline: auto;
+  max-width: var(--container-6xl);
+  padding-inline: --spacing(5);
+}

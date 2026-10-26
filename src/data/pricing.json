@@ -1,0 +1,10 @@
+{
+  "currency": "EUR",
+  "perPlayer": [
+    { "players": 2, "price": 32 },
+    { "players": 3, "price": 28 },
+    { "players": 4, "price": 26 },
+    { "players": 5, "price": 24 },
+    { "players": 6, "price": 22 }
+  ]
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fiche de cadrage – Huit Clés – Fabien Lubin</title>
+<style>
+  @page { size: A4; margin: 11mm 12mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 8.6pt/1.36 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1c1b22; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid #1c1b22; padding-bottom: 5px; margin-bottom: 7px; }
+  h1 { margin: 0; font-size: 15pt; letter-spacing: -0.01em; }
+  h1 small { display: block; font-size: 8pt; font-weight: 600; color: #6b6878; letter-spacing: 0.08em; text-transform: uppercase; }
+  .meta { text-align: right; font-size: 7.8pt; color: #4a4756; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: 1px solid #d6d4de; padding: 3.5px 6px; vertical-align: top; text-align: left; }
+  th { background: #f1f0f5; width: 17%; font-weight: 700; }
+  ol, ul { margin: 0; padding-left: 15px; }
+  li + li { margin-top: 1px; }
+  .personas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .personas th { width: 27%; }
+  .mission th, .mission td { background: #fbf5e8; font-weight: 600; }
+  .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: -1px; margin-right: 3px; border: 1px solid #0003; }
+  code { font: 7.8pt Menlo, monospace; background: #f1f0f5; padding: 0 2px; border-radius: 2px; }
+  .muted { color: #5c596a; }
+  td.sub { padding: 0; border: 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1><small>Fiche de cadrage · Projet noté TailwindCSS &amp; SASS</small>Huit Clés, escape game à Reims</h1>
+  <div class="meta">Fabien Lubin · ESGI Reims, bac+3 développement web<br>Enseignant : Cédric Navet · 26 octobre 2026</div>
+</header>
+
+<table>
+  <tr><th>Le client</th><td><strong>Huit Clés</strong> (nom fictif), escape game, typologie <em>culture et loisirs</em>. Reims, centre-ville. Petite entreprise de 6 salariés, 8 salles thématiques, ouverte 7 jours sur 7.</td></tr>
+  <tr><th>Ce qu'il propose</th><td>
+    <ol>
+      <li><strong>Les 8 salles</strong> : 60 à 90 min, de 2 à 8 joueurs, 4 niveaux de difficulté. De <strong>32&nbsp;€ par joueur à 2</strong>, dégressif jusqu'à <strong>22&nbsp;€ par joueur dès 6</strong>.</li>
+      <li><strong>Formule anniversaire</strong> : une salle et l'espace goûter privatisé, <strong>+60&nbsp;€ par groupe</strong>, dès 8 ans.</li>
+      <li><strong>Team building</strong> : jusqu'à 4 salles en simultané, 30 personnes maximum, <strong>sur devis</strong>.</li>
+      <li><strong>Carte cadeau</strong> : de 50&nbsp;€ à 250&nbsp;€, valable 1 an.</li>
+    </ol>
+  </td></tr>
+  <tr><th>L'objectif du site</th><td>Obtenir des réservations de salles en ligne : faire passer la part des réservations faites sur le site de <strong>40&nbsp;% à 70&nbsp;%</strong> en 6 mois, le reste arrivant aujourd'hui par téléphone.</td></tr>
+  <tr><td colspan="2" class="sub">
+    <div class="personas">
+      <table>
+        <tr><th colspan="2" style="width:auto">Persona 1 : Inès</th></tr>
+        <tr><th>Qui</th><td>Inès, 24 ans, étudiante infirmière ; fait 3 ou 4 escape games par an entre amis</td></tr>
+        <tr><th>Contexte</th><td>dans le tram, sur son <strong>téléphone</strong>, le soir ; organise pour son groupe de 5 amis</td></tr>
+        <tr><th>Ce qu'elle veut</th><td>une salle « pas trop dure » pour 5, un samedi soir, sans téléphoner</td></tr>
+        <tr><th>Ce qui la gêne</th><td>découvrir le prix à la fin, les longs formulaires sur mobile</td></tr>
+        <tr class="mission"><th>Sa mission</th><td>sur son téléphone, réserver un samedi soir une salle de difficulté Facile ou Moyenne pour 5 joueurs, <strong>en moins de 2 minutes, sans erreur de saisie</strong></td></tr>
+      </table>
+      <table>
+        <tr><th colspan="2" style="width:auto">Persona 2 : Gérard</th></tr>
+        <tr><th>Qui</th><td>Gérard, 67 ans, retraité ; n'a jamais fait d'escape game</td></tr>
+        <tr><th>Contexte</th><td>chez lui, sur son <strong>ordinateur portable</strong> ; prépare une sortie avec sa fille en fauteuil roulant et ses petits-enfants de 9 et 12 ans</td></tr>
+        <tr><th>Ce qu'il veut</th><td>être certain que la salle est accessible et adaptée aux enfants, et connaître le prix exact</td></tr>
+        <tr><th>Ce qui le gêne</th><td>le jargon (« room », « game master »), les petits caractères, les informations d'accès cachées</td></tr>
+        <tr class="mission"><th>Sa mission</th><td>sur ordinateur, trouver une salle accessible en fauteuil, jouable dès 9 ans, pour 4 joueurs, et lire son prix total, <strong>en moins de 3 minutes, sans aide</strong></td></tr>
+      </table>
+    </div>
+  </td></tr>
+  <tr><th>Les écrans</th><td>
+    <ol>
+      <li><strong>Accueil</strong> : la proposition de valeur (« 8 salles, une heure pour vous échapper, au cœur de Reims »), un seul appel à l'action <em>Trouver ma salle</em>, les 3 autres formules en bref.</li>
+      <li><strong>Les salles</strong> (interactif) : les 8 salles générées depuis le JSON ; <strong>3 filtres combinables</strong> (nombre de joueurs, difficulté, accessible en fauteuil) ; fiche détail en modal (histoire, durée, âge minimum, accès, <strong>prix total calculé</strong> pour le nombre de joueurs choisi) ; état vide qui propose de réinitialiser les filtres.</li>
+      <li><strong>Réserver</strong> (action) : formulaire (salle pré-remplie, date, créneau, nombre de joueurs, nom, e-mail, téléphone) avec labels visibles, validation à la sortie du champ et erreur affichée près du champ ; écran de confirmation qui récapitule la réservation et le prix.</li>
+    </ol>
+    <span class="muted"><strong>Parcours.</strong> Inès : Accueil → Salles (5 joueurs + Facile) → Réserver → Confirmation. Gérard : Accueil → Salles (fauteuil + 4 joueurs) → fiche détail. Navigation entre les vues par un état React.</span>
+  </td></tr>
+  <tr><th>Les données</th><td><code>rooms.json</code> : <strong>8 salles</strong>. Champs : <code>id</code>, <code>name</code>, <code>theme</code>, <code>story</code> (2 phrases), <code>difficulty</code> (1 Facile à 4 Expert), <code>playersMin</code>, <code>playersMax</code>, <code>duration</code> (min), <code>minAge</code>, <code>wheelchair</code> (booléen), <code>image</code> + <code>alt</code>, <code>slots</code> (créneaux, ex. <code>"18:30"</code>). Grille tarifaire par taille de groupe dans <code>pricing.json</code>.</td></tr>
+  <tr><th>Le composant en SASS</th><td><strong>La carte de salle</strong> (<code>RoomCard.module.scss</code>). Elle a <strong>4 variantes de difficulté</strong>, générées par une <strong>boucle</strong> <code>@each</code> sur une map SASS : couleur du bandeau et jauge de 1 à 4 cadenas (le niveau est aussi écrit en toutes lettres, jamais la couleur seule). Elle utilise des <strong>mixins</strong> partagés (anneau de focus, cible tactile de 44 px), chargés avec <code>@use</code>. Les couleurs viennent des variables de <code>@theme</code> : aucune valeur en dur.</td></tr>
+  <tr><th>L'ambiance</th><td><strong>Mystérieuse, chaleureuse, ludique.</strong>&nbsp;
+    <span class="swatch" style="background:#16131f"></span>Nuit d'encre <span class="muted">(fond)</span> ·
+    <span class="swatch" style="background:#d4a14a"></span>Laiton <span class="muted">(principale, la clé)</span> ·
+    <span class="swatch" style="background:#4ea596"></span>Vert-de-gris <span class="muted">(accent)</span></td></tr>
+</table>
+</body>
+</html>
