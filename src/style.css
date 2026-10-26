@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 /* Design tokens Huit Clés : chaque variable crée des classes utilitaires (bg-brass-400, text-muted...) */
-@theme {
+/* static : toutes les variables sont émises, même celles utilisées seulement par le SASS (ember-400) */
+@theme static {
   /* Fonds : nuit d'encre */
   --color-ink: oklch(0.17 0.025 295);
   --color-surface: oklch(0.22 0.03 295);
