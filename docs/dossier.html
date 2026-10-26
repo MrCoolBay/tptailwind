@@ -42,8 +42,8 @@
     <table style="margin-top:18px">
       <tr><th style="width:28%">Étudiant</th><td>Fabien Lubin</td></tr>
       <tr><th>Enseignant</th><td>Cédric Navet</td></tr>
-      <tr><th>Site en ligne</th><td><span class="todo">URL Vercel à compléter</span></td></tr>
-      <tr><th>Dépôt Git</th><td><span class="todo">URL GitHub à compléter</span></td></tr>
+      <tr><th>Site en ligne</th><td><a href="https://tptailwind.vercel.app">https://tptailwind.vercel.app</a></td></tr>
+      <tr><th>Dépôt Git</th><td><a href="https://github.com/MrCoolBay/tptailwind">https://github.com/MrCoolBay/tptailwind</a></td></tr>
       <tr><th>Technique</th><td>Vite, React 19, Tailwind CSS 4 (tokens <code>@theme</code>), SASS (<code>sass-embedded</code>, CSS Module + partials <code>@use</code>), Storybook 10 + addon Accessibility</td></tr>
     </table>
   </div>
@@ -168,12 +168,13 @@
   <h2>7. Qualité</h2>
   <h3>Lighthouse, mode mobile</h3>
   <div class="scores">
-    <div>Performance<strong id="lh-perf">98</strong></div>
+    <div>Performance<strong id="lh-perf">100</strong></div>
     <div>Accessibilité<strong id="lh-a11y">100</strong></div>
     <div>Bonnes pratiques<strong id="lh-bp">100</strong></div>
     <div>SEO<strong id="lh-seo">100</strong></div>
   </div>
-  <p class="muted" id="lh-source">Mesure sur la version de production servie en local (<code>vite preview</code>). <span class="todo">À remplacer par la mesure sur la version en ligne.</span></p>
+  <p class="muted" id="lh-source">Mesure sur la version en ligne (https://tptailwind.vercel.app), mode mobile, le 26 octobre 2026. En local, avant les corrections : performance 98, SEO 91.</p>
+  <figure style="margin-top:6px"><img src="captures/lighthouse-en-ligne.png" alt="Rapport Lighthouse mobile : 100 dans les quatre catégories" style="width:100%"><figcaption>Rapport Lighthouse, version en ligne</figcaption></figure>
   <h3>Ce qui a été corrigé grâce aux vérifications</h3>
   <table>
     <tr><th style="width:30%">Constat</th><th>Correction</th></tr>
