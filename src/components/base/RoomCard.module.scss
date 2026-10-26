@@ -1,0 +1,85 @@
+@use '../../styles/tokens';
+@use '../../styles/mixins';
+
+.card {
+  // Chaque variante de difficulté ne change que cette variable
+  --level-color: var(--color-line);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1.25rem;
+  border: 1px solid var(--color-line);
+  border-top: 4px solid var(--level-color);
+  border-radius: tokens.$radius-card;
+  background: var(--color-surface);
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease;
+
+  &:hover {
+    border-color: var(--level-color);
+    transform: translateY(-2px);
+  }
+
+  // Le focus est sur le bouton du titre, mais c'est toute la carte qui s'entoure
+  &:has(:focus-visible) {
+    @include mixins.focus-ring;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// Boucle : une classe par niveau, générée depuis la map de _tokens.scss
+@each $level, $color in tokens.$difficulties {
+  .level-#{$level} {
+    --level-color: #{$color};
+  }
+}
+
+.level {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.gauge {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.lock {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-line);
+
+  &.filled {
+    color: var(--level-color);
+  }
+}
+
+// Le bouton du titre couvre toute la carte : une seule grande cible
+.open {
+  text-align: left;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: tokens.$radius-card;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

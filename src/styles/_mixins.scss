@@ -1,0 +1,13 @@
+@use 'tokens';
+
+// Anneau de focus visible, identique à celui des classes Tailwind (outline-brass-300)
+@mixin focus-ring($offset: 3px) {
+  outline: 2px solid var(--color-brass-300);
+  outline-offset: $offset;
+}
+
+// Zone cliquable d'au moins 44 px
+@mixin touch-target {
+  min-height: tokens.$touch-target;
+  min-width: tokens.$touch-target;
+}

@@ -1,0 +1,12 @@
+// Les valeurs SASS pointent vers les variables CSS de @theme : une seule source de vérité, aucune couleur en dur
+
+// Couleur de chaque niveau de difficulté (1 Facile à 4 Expert)
+$difficulties: (
+  1: var(--color-verdigris-400),
+  2: var(--color-brass-400),
+  3: var(--color-ember-400),
+  4: var(--color-danger-400),
+);
+
+$radius-card: 1rem;
+$touch-target: 2.75rem; // 44 px
