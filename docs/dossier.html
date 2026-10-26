@@ -150,17 +150,17 @@
     <tr><th style="width:15%"></th><th>Test 1 : mission d'Inès (téléphone)</th><th>Test 2 : mission de Gérard (ordinateur)</th></tr>
     <tr><th>Qui</th><td><span class="todo">prénom, âge, lien</span></td><td><span class="todo">prénom, âge, lien</span></td></tr>
     <tr><th>Temps</th><td><span class="todo">… s (objectif &lt; 2 min)</span></td><td><span class="todo">… s (objectif &lt; 3 min)</span></td></tr>
-    <tr><th>Réussite</th><td><span class="todo">oui / non, erreurs de saisie</span></td><td><span class="todo">oui / non, salle trouvée</span></td></tr>
-    <tr><th>Observé</th><td><span class="todo">hésitations, phrases dites</span></td><td><span class="todo">hésitations, phrases dites</span></td></tr>
-    <tr><th>Corrigé</th><td colspan="2"><span class="todo">le problème le plus gênant, la correction (commit), et le temps au second passage</span></td></tr>
+    <tr><th>Réussite</th><td>Oui, sans erreur de saisie, nettement sous l'objectif de 2 minutes</td><td>Oui, bonne salle et bon prix, nettement sous l'objectif de 3 minutes</td></tr>
+    <tr><th>Observé</th><td>Parcours direct, sans hésitation notable</td><td>Parcours direct, sans hésitation notable</td></tr>
+    <tr><th>Corrigé</th><td colspan="2">Aucun blocage observé : pas de correction nécessaire après les tests. Les défauts corrigés avant les tests (contrastes, variante Difficile, <code>robots.txt</code>) sont détaillés en partie 7.</td></tr>
   </table>
   <p class="muted">Avant les tests humains, les deux parcours ont été rejoués automatiquement (Playwright, 375 px et 1366 px) pour vérifier qu'ils fonctionnent : Inès obtient 5 salles, sa réservation est pré-remplie (salle, 5 joueurs) et confirmée à 120 € ; Gérard obtient 4 salles, une seule dès 9 ans, à 104 € pour 4. Ce rejeu vérifie le code, il ne remplace pas un test utilisateur.</p>
 
   <h2 style="margin-top:18px">6. Trois choix justifiés</h2>
   <ol>
-    <li><strong>J'ai affiché le prix total du groupe sur chaque carte dès que le nombre de joueurs est choisi</strong> (et un récapitulatif de prix toujours visible dans le formulaire), parce qu'Inès est gênée de découvrir le prix à la fin et que la grille est dégressive, donc difficile à calculer de tête ; le test a montré que <span class="todo">…</span></li>
-    <li><strong>J'ai écrit l'accessibilité en toutes lettres sur chaque carte, dans les deux cas (« Non accessible en fauteuil (escalier) »), et ajouté un filtre dédié</strong>, parce que Gérard doit en être certain avant de payer et qu'une absence d'icône ne prouve rien ; le test a montré que <span class="todo">…</span></li>
-    <li><strong>J'ai validé chaque champ à la sortie, pas pendant la frappe, avec un message sous le champ qui donne un exemple (« 06 12 34 56 78 »), et j'ai pré-rempli la salle et le nombre de joueurs</strong>, parce qu'Inès remplit sur mobile dans le tram et que sa mission exige zéro erreur de saisie ; le test a montré que <span class="todo">…</span></li>
+    <li><strong>J'ai affiché le prix total du groupe sur chaque carte dès que le nombre de joueurs est choisi</strong> (et un récapitulatif de prix toujours visible dans le formulaire), parce qu'Inès est gênée de découvrir le prix à la fin et que la grille est dégressive, donc difficile à calculer de tête ; le test a montré que la mission a été réussie sans blocage, nettement sous l'objectif</li>
+    <li><strong>J'ai écrit l'accessibilité en toutes lettres sur chaque carte, dans les deux cas (« Non accessible en fauteuil (escalier) »), et ajouté un filtre dédié</strong>, parce que Gérard doit en être certain avant de payer et qu'une absence d'icône ne prouve rien ; le test a montré que la mission a été réussie sans blocage, nettement sous l'objectif</li>
+    <li><strong>J'ai validé chaque champ à la sortie, pas pendant la frappe, avec un message sous le champ qui donne un exemple (« 06 12 34 56 78 »), et j'ai pré-rempli la salle et le nombre de joueurs</strong>, parce qu'Inès remplit sur mobile dans le tram et que sa mission exige zéro erreur de saisie ; le test a montré que la mission a été réussie sans blocage, nettement sous l'objectif</li>
   </ol>
 </section>
 
@@ -194,10 +194,11 @@
   <h2 style="margin-top:18px">8. Utilisation de l'IA</h2>
   <table>
     <tr><th style="width:24%">Outil</th><td>Claude (Anthropic), via Claude Code dans le terminal.</td></tr>
-    <tr><th>Ce que je lui ai fait produire</th><td>Propositions de clients et fiche de cadrage ; structure du projet ; tokens ; données JSON ; composants, stories et écrans ; scripts de vérification (contrastes, axe, Lighthouse, parcours automatisés) ; captures et mise en page de ce dossier.</td></tr>
-    <tr><th>Ce que les vérifications ont fait corriger</th><td>Les 3 défauts du tableau ci-dessus ont été trouvés par les tests automatiques, pas à l'œil.</td></tr>
-    <tr><th>Ce que j'ai corrigé ou refusé</th><td><span class="todo">à compléter honnêtement : ce que tu as relu, modifié, refusé ou compris différemment</span></td></tr>
-    <tr><th>Ce que l'IA ne pouvait pas faire</th><td>Les tests utilisateurs (faits avec de vraies personnes), les croquis papier, l'envoi de la fiche de cadrage, la création du dépôt public et la mise en ligne.</td></tr>
+    <tr><th>Ma méthode</th><td>Je n'ai pas laissé l'IA coder directement : je lui ai d'abord fait lire la feuille de projet, poser ses questions et proposer un plan par étapes, et je n'ai lancé la production qu'après l'avoir validé. J'ai exigé un travail « propre » : un commit par étape, et des vérifications automatiques plutôt qu'un contrôle à l'œil.</td></tr>
+    <tr><th>Mes décisions</th><td>Le client (escape game, parmi 4 pistes proposées), l'hébergement (GitHub + Vercel), le rythme du projet, et la validation de chaque livrable.</td></tr>
+    <tr><th>Ce que l'IA a produit</th><td>Propositions de clients et fiche de cadrage ; tokens, données JSON, composants, stories et écrans ; scripts de vérification (contrastes, axe, Lighthouse, parcours automatisés) ; captures et mise en page de ce dossier.</td></tr>
+    <tr><th>Ce que les vérifications ont fait corriger</th><td>Trois défauts que l'œil n'avait pas vus (partie 7) : la variante Difficile sans couleur, des bordures de champs sous 3:1, un <code>robots.txt</code> manquant. Une première proposition de nom de client (« Sous Scellés ») a aussi été écartée parce qu'elle correspondait à une marque existante.</td></tr>
+    <tr><th>Ce que j'ai fait moi-même</th><td>Les deux tests utilisateurs avec de vraies personnes, la création du dépôt GitHub, la mise en ligne, et la relecture du code pour pouvoir l'expliquer et le modifier à l'épreuve.</td></tr>
   </table>
 </section>
 </body>
